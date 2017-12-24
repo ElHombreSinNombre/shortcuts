@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Shortcuts</title>
+        <link rel="icon" href="resources/img/icon.png">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand">Shortcuts</a>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#edition">Edition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#compilation">Compilation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#debug">Debug</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#navigation">Navigation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#refactoring">Refactoring</a>
+                        </li>
+                    </ul>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <span title="Search" v-on:click="see = !see" class="input-group-addon btn btn-primary">
+                                <i class="ion-search"></i>
+                            </span>
+                            <input v-if="see" v-model="search" class="form-control " placeholder="Search shortcut...">
+                        </div>
+                    </div>
+            </nav>
+            <section class="container">
+
+
+                <table class="table table-hover table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Intellij</th>
+                            <th>Eclipse</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="edition">
+                            <td>
+                                <b>Edition</b>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr v-for="(edition, index) in matchesEdition" :key="edition.index" >
+                            <td></td>
+                            <td class="alert alert-success">{{ edition.intellij }}</td>
+                            <td class="alert alert-info">{{ edition.eclipse }}</td>
+                            <td>{{ edition.description }}</td>
+                        </tr>
+                        <tr>
+                            <td id="compilation">
+                                <b>Compilation</b>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr v-for="(compilation, index) in matchesCompilation" :key="compilation.index">
+                            <td></td>
+                            <td class="alert alert-success">{{ compilation.intellij }}</td>
+                            <td class="alert alert-info">{{ compilation.eclipse }}</td>
+                            <td>{{ compilation.description }}</td>
+                        </tr>
+                        <tr>
+                            <td id="debug">
+                                <b>Debug</b>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr v-for="(debug, index) in matchesDebug" :key="debug.index">
+                            <td></td>
+                            <td class="alert alert-success">{{ debug.intellij }}</td>
+                            <td class="alert alert-info">{{ debug.eclipse }}</td>
+                            <td>{{ debug.description }}</td>
+                        </tr>
+                        <tr>
+                            <td id="navigation">
+                                <b>Navigation</b>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr v-for="(navigation, index) in matchesNavigation" :key="navigation.index">
+                            <td></td>
+                            <td class="alert alert-success">{{ navigation.intellij }}</td>
+                            <td class="alert alert-info">{{ navigation.eclipse }}</td>
+                            <td>{{ navigation.description }}</td>
+                        </tr>
+                        <tr>
+                            <td id="refactoring">
+                                <b>Refactoring</b>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr v-for="(refactoring, index) in matchesRefactoring" :key="refactoring.index" >
+                            <td></td>
+                            <td class="alert alert-success">{{ refactoring.intellij }}</td>
+                            <td class="alert alert-info">{{ refactoring.eclipse }}</td>
+                            <td>{{ refactoring.description }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+            </div>
+            <script src="js/vue.js"></script>
+            <script src="js/app.js"></script>
+
+
+    </body>
+
+</html>
