@@ -9,34 +9,37 @@
         <link rel="icon" href="resources/img/icon.png">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/tooltip.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
         <div id="app">
+
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Shortcuts</a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#edition">Edition</a>
+                            <a class="nav-link" v-scroll-to="'#edition'" href="#edition">Edition</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#compilation">Compilation</a>
+                            <a class="nav-link" v-scroll-to="'#compilation'" href="#compilation">Compilation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#debug">Debug</a>
+                            <a class="nav-link" v-scroll-to="'#debug'" href="#debug">Debug</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#navigation">Navigation</a>
+                            <a class="nav-link" v-scroll-to="'#navigation'" href="#navigation">Navigation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#refactoring">Refactoring</a>
+                            <a class="nav-link" v-scroll-to="'#refactoring'" href="#refactoring">Refactoring</a>
                         </li>
                     </ul>
+
                     <div class="form-inline">
                         <div class="input-group">
-                            <span title="Search" v-on:click="see = !see" class="input-group-addon btn btn-primary">
+                            <span v-tooltip="message" v-on:click="see = !see" class="input-group-addon btn btn-primary">
                                 <i class="fa fa-search"></i>
                             </span>
                             <input v-if="see" v-model="search" class="form-control " placeholder="Search shortcut...">
@@ -68,8 +71,8 @@
                             <td class="alert alert-info">{{ edition.eclipse }}</td>
                             <td>{{ edition.description }}</td>
                         </tr>
-                        <tr>
-                            <td id="compilation">
+                        <tr id="compilation">
+                            <td>
                                 <b>Compilation</b>
                             </td>
                             <td></td>
@@ -82,8 +85,8 @@
                             <td class="alert alert-info">{{ compilation.eclipse }}</td>
                             <td>{{ compilation.description }}</td>
                         </tr>
-                        <tr>
-                            <td id="debug">
+                        <tr id="debug">
+                            <td>
                                 <b>Debug</b>
                             </td>
                             <td></td>
@@ -96,8 +99,8 @@
                             <td class="alert alert-info">{{ debug.eclipse }}</td>
                             <td>{{ debug.description }}</td>
                         </tr>
-                        <tr>
-                            <td id="navigation">
+                        <tr id="navigation">
+                            <td>
                                 <b>Navigation</b>
                             </td>
                             <td></td>
@@ -110,8 +113,8 @@
                             <td class="alert alert-info">{{ navigation.eclipse }}</td>
                             <td>{{ navigation.description }}</td>
                         </tr>
-                        <tr>
-                            <td id="refactoring">
+                        <tr id="refactoring">
+                            <td>
                                 <b>Refactoring</b>
                             </td>
                             <td></td>
@@ -126,9 +129,23 @@
                         </tr>
                     </tbody>
                 </table>
+
             </section>
+            <footer class="navbar-light bg-light">
+                <div class="row">
+                    <div class="col text-center">
+                        <b>Asier Lara</b>
+                    </div>
+                    <div class="col  text-center">
+                         <a href="https://github.com/ElHombreSinNombre" target="_blank"><i v-tooltip="icon1" class="fa fa-github"></i></a>
+                    </div>
+                </div>
+            </footer>
             </div>
             <script src="js/vue.js"></script>
+            <script src="js/scroll.js"></script>
+            <script src="js/popper.js"></script>
+            <script src="https://unpkg.com/v-tooltip"></script>
             <script src="js/app.js"></script>
     </body>
 

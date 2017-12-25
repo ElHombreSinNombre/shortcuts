@@ -1,7 +1,10 @@
+Vue.use(VueScrollTo, VTooltip)
 new Vue({
     el: '#app',
     data() {
         return {
+            message: 'Search',
+            icon1: 'Github',
             see: false,
             search: '',
             editions: [{
@@ -64,7 +67,7 @@ new Vue({
                 intellij: "Ctrl + Shift + W",
                 eclipse: "Ctrl + Shift + Down",
                 description: "Decrease current selection to previous state"
-            },{
+            }, {
                 intellij: "Alt + Q",
                 eclipse: "",
                 description: "Context info"
